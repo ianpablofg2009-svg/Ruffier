@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QLabel, QPushButton, QLineEdit
+from final_win import Result
 
 class Pulses(QWidget):
     def __init__(self):
@@ -25,6 +26,7 @@ class Pulses(QWidget):
         self.txt_p3 = QLineEdit()
         #Crear botón de resultados
         self.btn_result = QPushButton("Resultado")
+        self.btn_result.clicked.connect(self.show_result_window)
 
         #agregar layout principal
         self.setLayout(layout_pulses)
@@ -40,3 +42,8 @@ class Pulses(QWidget):
         layout_pulses.addWidget(self.lbl_p3)
         layout_pulses.addWidget(self.txt_p3)
         layout_pulses.addWidget(self.btn_result)
+
+    def show_result_window(self):
+        self.result = Result()
+        self.result.show()
+        self.hide()
