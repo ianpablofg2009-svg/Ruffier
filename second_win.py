@@ -44,6 +44,11 @@ class Pulses(QWidget):
         layout_pulses.addWidget(self.btn_result)
 
     def show_result_window(self):
-        self.result = Result()
+        name = self.txt_name.text()
+        age = int(self.txt_age.text())
+        p1 = int(self.txt_p1.text())
+        p2 = int(self.txt_p2.text())
+        p3 = int(self.txt_p3.text())
+        self.result = Result(name, age, p1, p2, p3)
         self.result.show()
         self.hide()
